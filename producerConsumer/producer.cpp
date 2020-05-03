@@ -51,12 +51,12 @@ void Producer::prepareData()
 		m_conditionFull.notify_one();
 	}
 
-	{
+	/*{
 		std::lock_guard<std::mutex> lockGuard(m_mutex);
 		m_finished = true;
-	}
+	}*/
 
-	m_conditionFull.notify_one();
+	//m_conditionFull.notify_one();
 
     file.close();
 }

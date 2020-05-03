@@ -58,6 +58,13 @@ void Consumer::processData()
 			stack.pop();
 
 			counter += std::stoi(pattern);
+
+			//std::cout << counter << std::endl;
+
+			if (counter == 200000)
+			{
+				break;
+			}
 		}
 
 		uniqueLock.lock();
@@ -67,5 +74,5 @@ void Consumer::processData()
 		}
 	}
 
-	assert(counter == 100000);
+	assert(counter == 200000);
 }

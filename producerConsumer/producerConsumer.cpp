@@ -16,15 +16,24 @@ int main()
 	bool m_finished = false;
 
 	std::thread threadP(Producer(
-		std::move("text.txt")
+		"text.txt"
 		, std::ref(m_stack)
 		, std::ref(m_mutex)
 		, std::ref(m_conditionFull)
 		, std::ref(m_conditionEmpty)
 		, std::ref(m_finished))
 	);
+	std::thread threadP2(Producer(
+		"text2.txt"
+		, std::ref(m_stack)
+		, std::ref(m_mutex)
+		, std::ref(m_conditionFull)
+		, std::ref(m_conditionEmpty)
+		, std::ref(m_finished))
+	);
+
 	std::thread threadC(Consumer(
-		std::move("BUBBABBA")
+		"BUBBABBA"
 		, std::ref(m_stack)
 		, std::ref(m_mutex)
 		, std::ref(m_conditionFull)
@@ -33,5 +42,6 @@ int main()
 	);
 
 	threadP.join();
+	threadP2.join();
 	threadC.join();
 }
