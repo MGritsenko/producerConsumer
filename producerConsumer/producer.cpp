@@ -5,7 +5,7 @@
 #include <fstream>
 
 Producer::Producer(
-	const std::string&& path
+	  std::string&& path
 	, std::stack<std::string>& stack
 	, std::mutex& mutex
 	, std::condition_variable& conditionFull

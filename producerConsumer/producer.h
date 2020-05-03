@@ -8,7 +8,7 @@
 class Producer
 {
 public:
-	Producer(const std::string&& path
+	Producer(std::string&& path
 		, std::stack<std::string>& stack
 		, std::mutex& mutex
 		, std::condition_variable& conditionFull

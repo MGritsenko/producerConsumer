@@ -8,7 +8,7 @@
 class Consumer
 {
 public:
-	Consumer(const std::string&& pattern
+	Consumer(std::string&& pattern
 		, std::stack<std::string>& stack
 		, std::mutex& mutex
 		, std::condition_variable& conditionFull
