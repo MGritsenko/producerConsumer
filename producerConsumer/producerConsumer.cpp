@@ -15,11 +15,6 @@ int main()
 	std::string m_path;
 	bool m_finished = false;
 
-	//Producer producer(std::move("text.txt"), m_stack, m_mutex, m_conditionVariable, m_finished);
-	//Consumer consumer(std::move("BUBBABBA"), m_stack, m_mutex, m_conditionVariable, m_finished);
-	//std::thread threadP(producer);
-	//std::thread threadC(consumer);
-
 	std::thread threadP(Producer(
 		std::move("text.txt")
 		, std::ref(m_stack)
